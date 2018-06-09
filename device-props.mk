@@ -41,7 +41,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     sdm.debug.disable_inline_rotator=1 \
-    sdm.debug.disable_inline_rotator_secure=1
+    sdm.debug.disable_inline_rotator_secure=1 \
+    debug.hwui.use_buffer_age=false
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
