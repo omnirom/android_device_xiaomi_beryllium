@@ -490,4 +490,7 @@
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
 
+    <!-- enable support for configure max aspect ratio per app -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
 </resources>
