@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.beryllium
 
 # QTI
 PRODUCT_COPY_FILES += \
