@@ -22,6 +22,9 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/xiaomi/beryllium/device.mk)
 
+# CarrierConfig
+PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
+
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
