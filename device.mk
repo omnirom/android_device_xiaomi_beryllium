@@ -49,6 +49,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.qcom.rc
 
+# Device Parts
+PRODUCT_PACKAGES += \
+    DeviceParts
+
 # Display
 PRODUCT_PACKAGES += \
     libtinyxml2
