@@ -53,9 +53,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.HapticFeedbackConstants;
 import android.view.WindowManagerGlobal;
-import android.view.WindowManagerPolicy;
 
-import com.android.internal.os.DeviceKeyHandler;
+import com.android.internal.util.omni.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.omni.OmniUtils;
 import com.android.internal.statusbar.IStatusBarService;
@@ -98,7 +97,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean mUseWaveCheck;
     private Sensor mPocketSensor;
     private boolean mUsePocketCheck;
-    private WindowManagerPolicy mPolicy;
 
     private SensorEventListener mProximitySensor = new SensorEventListener() {
         @Override
@@ -147,10 +145,10 @@ public class KeyHandler implements DeviceKeyHandler {
 
         void observe() {
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DEVICE_PROXI_CHECK_ENABLED),
+                    Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED),
                     false, this);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DEVICE_FEATURE_SETTINGS),
+                    Settings.System.OMNI_DEVICE_FEATURE_SETTINGS),
                     false, this);
             update();
             updateDozeSettings();
@@ -164,7 +162,7 @@ public class KeyHandler implements DeviceKeyHandler {
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.DEVICE_FEATURE_SETTINGS))){
+                    Settings.System.OMNI_DEVICE_FEATURE_SETTINGS))){
                 updateDozeSettings();
                 return;
             }
@@ -173,7 +171,7 @@ public class KeyHandler implements DeviceKeyHandler {
 
         public void update() {
             mUseProxiCheck = Settings.System.getIntForUser(
-                    mContext.getContentResolver(), Settings.System.DEVICE_PROXI_CHECK_ENABLED, 1,
+                    mContext.getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1,
                     UserHandle.USER_CURRENT) == 1;
         }
     }
@@ -284,7 +282,7 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private void updateDozeSettings() {
         String value = Settings.System.getStringForUser(mContext.getContentResolver(),
-                    Settings.System.DEVICE_FEATURE_SETTINGS,
+                    Settings.System.OMNI_DEVICE_FEATURE_SETTINGS,
                     UserHandle.USER_CURRENT);
         if (DEBUG) Log.i(TAG, "Doze settings = " + value);
         if (!TextUtils.isEmpty(value)) {
@@ -294,20 +292,6 @@ public class KeyHandler implements DeviceKeyHandler {
                 mUsePocketCheck = Boolean.valueOf(parts[1]);
                 mUseTiltCheck = Boolean.valueOf(parts[2]);
             }
-        }
-    }
-
-    @Override
-    public void setWindowManagerPolicy(WindowManagerPolicy policy) {
-        mPolicy = policy;
-    }
-
-    private void vibe(){
-        boolean doVibrate = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DEVICE_OFF_SCREEN_GESTURE_FEEDBACK_ENABLED, 0,
-                UserHandle.USER_CURRENT) == 1;
-        if (doVibrate && mPolicy != null) {
-            mPolicy.performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
         }
     }
 }

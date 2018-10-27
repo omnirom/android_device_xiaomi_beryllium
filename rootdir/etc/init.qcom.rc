@@ -12,6 +12,10 @@ on boot
     chown system system /proc/touchpanel/wake_gesture
     chmod 0660 /proc/touchpanel/wake_gesture
 
+on post-fs
+    # Vibrator
+    chown system system /sys/class/leds/vibrator/vmax_mv_user
+
 service vendor.ss_ramdump_local /vendor/bin/subsystem_ramdump
     class late_start
     user system
