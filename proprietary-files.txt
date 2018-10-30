@@ -52,8 +52,7 @@ lib/libdpmtcm.so
 -priv-app/dpmserviceapp/dpmserviceapp.apk
 
 # IMS
--app/ims/ims.apk|1aab8ee5e3b81f9534a034b4e0fa2b1a857ac05b
--app/imssettings/imssettings.apk|b1f64ee718321aab8cd261c21c24356b443a0ff9
+-app/ims/ims.apk
 -app/uceShimService/uceShimService.apk
 etc/permissions/com.qualcomm.qti.imscmservice.xml
 etc/permissions/qti-vzw-ims-internal.xml
