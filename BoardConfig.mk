@@ -43,6 +43,8 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := beryllium_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
+BOARD_ROOT_EXTRA_FOLDERS := odm
+BOARD_ROOT_EXTRA_SYMLINKS := /vendor/dsp:/dsp /vendor/firmware_mnt:/firmware /vendor/bt_firmware:/bt_firmware /mnt/vendor/persist:/persist
 
 # Platform
 #TARGET_BOARD_PLATFORM := sdm845
