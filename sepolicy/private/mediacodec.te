@@ -1,0 +1,1 @@
+allow mediacodec qti_debugfs:dir { search };

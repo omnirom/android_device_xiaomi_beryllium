@@ -1,0 +1,9 @@
+allow untrusted_app qti_debugfs:dir search;
+allow untrusted_app proc_tty_drivers:file read;
+allow untrusted_app qemu_hw_mainkeys_prop:file read;
+
+allow untrusted_app_25 qti_debugfs:dir search;
+
+allow untrusted_app_27 qti_debugfs:dir search;
+allow untrusted_app_27 self:udp_socket ioctl;
+allow untrusted_app_27 sysfs:dir { open read };

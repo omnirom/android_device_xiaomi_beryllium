@@ -18,3 +18,9 @@
 # Power HAL
 /system/lib64/hw/power\.beryllium\.so    u:object_r:vendor_file:s0
 /system/lib/hw/power\.beryllium\.so      u:object_r:vendor_file:s0
+
+# Rootfs
+/firmware/firmware_mnt          u:object_r:rootfs:s0
+
+# Sys
+/sys/devices/platform/soc/18800000.qcom,icnss/net(/.*)?     u:object_r:sysfs_wlan:s0
