@@ -5,7 +5,7 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/beryllium/beryllium-vendor.mk)
+$(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 1080p
