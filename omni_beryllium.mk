@@ -37,9 +37,8 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Poco F1
 PRODUCT_MANUFACTURER := Xiaomi
 
-BUILD_FINGERPRINT := "Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/8.10.30:user/release-keys"
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT=Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/8.10.30:user/release-keys \
     PRIVATE_BUILD_DESC="beryllium-user 9 PKQ1.180729.001 8.10.30 release-keys" \
     PRODUCT_NAME="beryllium" \
     TARGET_DEVICE="beryllium"
