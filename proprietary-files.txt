@@ -61,6 +61,14 @@ lib/libdpmframework.so
 lib/libdpmtcm.so
 -priv-app/dpmserviceapp/dpmserviceapp.apk
 
+# DISPLAY
+lib64/libsd_sdk_display.so
+lib64/libsdm-disp-apis.so
+lib64/vendor.display.color@1.0.so
+lib64/vendor.display.color@1.1.so
+lib/libsd_sdk_display.so
+lib/libsdm-disp-apis.so
+
 # IMS
 -priv-app/ims/ims.apk
 -app/imssettings/imssettings.apk
