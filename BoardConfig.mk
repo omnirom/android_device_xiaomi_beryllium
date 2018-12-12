@@ -115,6 +115,9 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 include vendor/omni/sepolicy/sepolicy.mk
 SELINUX_IGNORE_NEVERALLOWS := true
 
+# SNAPCAM
+BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
+
 # Treble
 BOARD_VNDK_RUNTIME_DISABLE := true
 BOARD_VNDK_VERSION := current

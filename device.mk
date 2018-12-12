@@ -36,6 +36,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
 
+# Camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera2
+
 # Device init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc
