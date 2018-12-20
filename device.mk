@@ -104,3 +104,7 @@ PRODUCT_PACKAGES += \
 # VNDK-SP
 PRODUCT_PACKAGES += \
     vndk-sp
+
+# WFD
+PRODUCT_BOOT_JARS += \
+    WfdCommon
