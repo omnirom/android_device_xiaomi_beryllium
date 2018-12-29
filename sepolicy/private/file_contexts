@@ -21,6 +21,3 @@
 
 # Rootfs
 /firmware/firmware_mnt          u:object_r:rootfs:s0
-
-# Sys
-/sys/devices/platform/soc/18800000.qcom,icnss/net(/.*)?     u:object_r:sysfs_wlan:s0
