@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013, 2018 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -37,8 +37,14 @@
 #define ONDEMAND_GOVERNOR "ondemand"
 #define INTERACTIVE_GOVERNOR "interactive"
 #define MSMDCVS_GOVERNOR "msm-dcvs"
+#define SCHEDUTIL_GOVERNOR "schedutil"
 
 #define HINT_HANDLED (0)
 #define HINT_NONE (-1)
 
-enum CPU_GOV_CHECK { CPU0 = 0, CPU1 = 1, CPU2 = 2, CPU3 = 3 };
+enum CPU_GOV_CHECK {
+    CPU0 = 0,
+    CPU1 = 1,
+    CPU2 = 2,
+    CPU3 = 3
+};
