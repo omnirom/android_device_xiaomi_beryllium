@@ -8,10 +8,6 @@ on init
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     mount none /system/etc/media_profiles_vendor.xml /vendor/etc/media_profiles_vendor.xml bind
 
-on boot
-    chown system system /proc/touchpanel/wake_gesture
-    chmod 0660 /proc/touchpanel/wake_gesture
-
 on post-fs
     # Vibrator
     chown system system /sys/class/leds/vibrator/vmax_mv_user
