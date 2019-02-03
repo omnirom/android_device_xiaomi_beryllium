@@ -1,6 +1,7 @@
 get_prop(priv_app, boottime_prop);
 get_prop(priv_app, ctl_bootanim_prop);
 get_prop(priv_app, ctl_bugreport_prop);
+get_prop(priv_app, cnd_vendor_prop);
 
 allow priv_app device:dir { open read };
 allow priv_app proc_interrupts:file { read open };

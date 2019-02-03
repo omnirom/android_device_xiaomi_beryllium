@@ -1,5 +1,6 @@
 get_prop(system_app, qemu_hw_mainkeys_prop);
 get_prop(system_app, boottime_prop);
+get_prop(system_app, cnd_vendor_prop);
 
 allow system_app fs_bpf:dir { search };
 allow system_app sysfs_leds:file rw_file_perms;
