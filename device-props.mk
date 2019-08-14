@@ -31,22 +31,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480 \
-    ro.qcom.ad=1 \
-    ro.qcom.ad.calib.data=/vendor/etc/sdr_config.cfg \
-    ro.qcom.ad.hdr.calib.data=/vendor/etc/hdr_config.cfg \
-    ro.qcom.ad.sensortype=2 \
+    ro.vendor.display.ad=1 \
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
+    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
+    ro.vendor.display.sensortype=2 \
     ro.qualcomm.cabl=0
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     sdm.debug.disable_inline_rotator=1 \
-    sdm.debug.disable_inline_rotator_secure=1 \
-    debug.hwui.use_buffer_age=false
+    sdm.debug.disable_inline_rotator_secure=1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.video=true
+    audio.offload.video=true \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # Netflix custom property
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -73,7 +73,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.redir_party_num=1 \
     ril.subscription.types=NV,RUIM \
     ro.telephony.default_network=22,22 \
-    telephony.lteOnCdmaDevice=1
+    telephony.lteOnCdmaDevice=1 \
+    persist.vendor.radio.aosp_usr_pref_sel=true
 
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
