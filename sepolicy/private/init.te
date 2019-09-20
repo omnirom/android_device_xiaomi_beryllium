@@ -5,7 +5,7 @@ allow init vendor_file:file mounton;
 allow init rootfs:file mounton;
 
 # Allow init to mount vendor configs
-allow init vendor_configs_file:file mounton;
+allow init vendor_configs_file:dir mounton;
 
 # Allow init to mount debugfs
 allow init debugfs:dir mounton;

@@ -13,10 +13,13 @@
 // limitations under the License.
 
 cc_binary {
-    relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.xiaomi_sdm845",
-    init_rc: ["android.hardware.light@2.0-service.xiaomi_sdm845.rc"],
+    defaults: ["hidl_defaults"],
+    stem: "android.hardware.light@2.0-service",
+    init_rc: ["android.hardware.light@2.0-service.rc"],
+    vendor: false,
+    product_overlay_specific: true,
+    relative_install_path: "hw",
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
         "android.hardware.light@2.0",
@@ -27,5 +30,8 @@ cc_binary {
         "libhwbinder",
         "liblog",
         "libutils",
+    ],
+    overrides: [
+        "light",
     ],
 }
