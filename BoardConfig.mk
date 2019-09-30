@@ -1,7 +1,24 @@
-#
+# Copyright (C) 2010 The Android Open Source Project
 # Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2019 The OmniRom Project
 #
-# SPDX-License-Identifier: Apache-2.0
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# This file is the build configuration for a full Android
+# build for grouper hardware. This cleanly combines a set of
+# device-specific aspects (drivers) with a device-agnostic
+# product configuration (apps).
 #
 
 BOARD_VENDOR := xiaomi
@@ -33,7 +50,7 @@ TARGET_OTA_ASSERT_DEVICE := beryllium
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -43,11 +60,12 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := beryllium_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm845
+TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_ROOT_EXTRA_FOLDERS := odm
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/dsp:/dsp /vendor/firmware_mnt:/firmware /vendor/bt_firmware:/bt_firmware /mnt/vendor/persist:/persist
 
 # Platform
-#TARGET_BOARD_PLATFORM := sdm845
+TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Audio
@@ -69,12 +87,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
+TARGET_FACE_UNLOCK_CAMERA_ID := 5
 
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
-
-# Camera
-TARGET_FACE_UNLOCK_CAMERA_ID := 5
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -135,10 +151,7 @@ include vendor/omni/sepolicy/sepolicy.mk
 BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
 
 # Treble
-BOARD_VNDK_RUNTIME_DISABLE := true
 BOARD_VNDK_VERSION := current
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_SHIPPING_API_LEVEL := 27
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/beryllium/BoardConfigVendor.mk

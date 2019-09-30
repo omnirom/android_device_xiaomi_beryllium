@@ -1,23 +1,39 @@
-#
+# Copyright (C) 2010 The Android Open Source Project
 # Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2019 The OmniRom Project
 #
-# SPDX-License-Identifier: Apache-2.0
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# This file is the build configuration for a full Android
+# build for grouper hardware. This cleanly combines a set of
+# device-specific aspects (drivers) with a device-agnostic
+# product configuration (apps).
 #
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    vendor/omni/overlay/CarrierConfig
+
+# Api
+PRODUCT_SHIPPING_API_LEVEL := 28
+
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 1080p
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-PRODUCT_PACKAGES += \
-    NoCutoutOverlay
-
-# Properties
--include $(LOCAL_PATH)/device-props.mk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -88,29 +104,28 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0 \
     libandroid_net
 
+# NoCutout
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay
+
 # Power
 PRODUCT_PACKAGES += \
     power.beryllium
 
-# OMNI
-PRODUCT_PACKAGES += \
-    OmniDisplayManager
+# Properties
+-include $(LOCAL_PATH)/device-props.mk
 
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
     $(LOCAL_PATH)/permissions/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
 
-# RCS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    com.android.ims.rcsmanager.xml \
-    RcsService \
-    PresencePolling
+# Split selinux policy
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # VNDK-SP
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk_package
 
 # WFD
 PRODUCT_BOOT_JARS += \

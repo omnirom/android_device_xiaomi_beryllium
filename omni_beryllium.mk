@@ -21,20 +21,17 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/xiaomi/beryllium/device.mk)
-
-# CarrierConfig
-PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
-
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/xiaomi/beryllium/device.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := omni_beryllium
 PRODUCT_DEVICE := beryllium
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Poco F1
+PRODUCT_MODEL := POCO F1
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
