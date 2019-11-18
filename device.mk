@@ -124,6 +124,10 @@ PRODUCT_COPY_FILES += \
 # Split selinux policy
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 # VNDK-SP
 PRODUCT_PACKAGES += \
     vndk_package
