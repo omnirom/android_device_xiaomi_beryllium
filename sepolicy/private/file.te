@@ -8,5 +8,6 @@ type sysfs_white_led, sysfs_type, fs_type;
 type sysfs_block, fs_type, sysfs_type;
 type sysfs_graphics, sysfs_type, fs_type;
 
-type firmware_file, file_type, vendor_file_type;
-type bt_firmware_file, file_type, vendor_file_type;
+type persist_file, file_type;
+type firmware_file, fs_type, contextmount_type;
+type bt_firmware_file, file_type, contextmount_type;

@@ -144,11 +144,17 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # Sepolicy
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 include vendor/omni/sepolicy/sepolicy.mk
-#SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/public \
+    device/qcom/sepolicy/qva/public
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/private \
+    device/qcom/sepolicy/qva/private
+
+# Selinux
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # SNAPCAM
 BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2

@@ -16,4 +16,4 @@ allow init {
 }:file { open read setattr };
 
 # Allow init to process
-allow init { tee -tzdatacheck -ueventd -vendor_init -wfdservice }:process noatsecure;
+allow init { tee -tzdatacheck -ueventd -vendor_init }:process noatsecure;
