@@ -24,11 +24,6 @@
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    vendor/omni/overlay/CarrierConfig
-
 # Api
 PRODUCT_SHIPPING_API_LEVEL := 28
 
