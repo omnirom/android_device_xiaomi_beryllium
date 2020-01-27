@@ -30,7 +30,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480 \
+    ro.sf.lcd_density=440 \
     ro.vendor.display.ad=1 \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
     ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
