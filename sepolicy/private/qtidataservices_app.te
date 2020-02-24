@@ -1,0 +1,2 @@
+type qtidataservices_app, domain;
+allow qtidataservices_app self:socket create;

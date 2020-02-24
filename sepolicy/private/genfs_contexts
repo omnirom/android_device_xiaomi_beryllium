@@ -1,1 +1,1 @@
-genfscon proc /bus/pci/devices		u:object_r:proc_pci:s0
+genfscon debugfs /ion                                 u:object_r:debugfs_ion:s0

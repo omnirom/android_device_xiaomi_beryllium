@@ -1,4 +1,4 @@
-get_prop(platform_app, qemu_hw_mainkeys_prop);
-
-allow platform_app qti_debugfs:dir search;
-allow platform_app system_app_data_file:dir getattr;
+allow platform_app default_android_service:service_manager find;
+allow platform_app debugfs_ion:dir search;
+allow platform_app sysfs_kgsl:dir search;
+allow platform_app sysfs_kgsl:file { getattr open read };

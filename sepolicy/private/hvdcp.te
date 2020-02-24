@@ -1,0 +1,2 @@
+type hvdcp, domain;
+allow hvdcp sysfs_wireless_supply:dir { search };

@@ -1,0 +1,2 @@
+type qti_init_shell, domain;
+allow qti_init_shell sysfs_wireless_supply:file setattr;

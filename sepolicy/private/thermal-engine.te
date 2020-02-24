@@ -1,0 +1,2 @@
+type thermal-engine, domain;
+allow thermal-engine sysfs:dir { open read };

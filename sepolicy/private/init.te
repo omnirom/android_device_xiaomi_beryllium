@@ -1,5 +1,5 @@
 # Allow init to mount wlan kernel module
-allow init vendor_file:file mounton;
+allow init { system_file vendor_file }:file mounton;
 
 # Allow init to mount offmode charging daemon
 allow init rootfs:file mounton;
@@ -7,13 +7,8 @@ allow init rootfs:file mounton;
 # Allow init to mount vendor configs
 allow init vendor_configs_file:dir mounton;
 
-# Allow init to mount debugfs
-allow init debugfs:dir mounton;
-
-# Allow init to chown/chmod on pseudo files in /sys
-allow init {
-    sysfs_graphics
-}:file { open read setattr };
-
 # Allow init to process
 allow init { tee -tzdatacheck -ueventd -vendor_init }:process noatsecure;
+
+allow init bt_firmware_file:filesystem getattr;
+allow init { sysfs_devices_block sysfs_white_led }:file setattr;
