@@ -1,0 +1,2 @@
+type netmgrd, domain;
+allow netmgrd diag_device:chr_file rw_file_perms;

@@ -1,2 +1,5 @@
 type qti_init_shell, domain;
+
 allow qti_init_shell sysfs_wireless_supply:file setattr;
+allow qti_init_shell sysfs:file { rw_file_perms setattr };
+allow qti_init_shell persist_file:lnk_file read;

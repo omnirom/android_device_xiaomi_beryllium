@@ -1,0 +1,2 @@
+allow hal_audio persist_file:lnk_file read;
+allow hal_audio sysfs:dir read;
