@@ -1,0 +1,8 @@
+{
+    "model": "POCOPHONE F1",
+    "pageUrl":"https://dl.omnirom.org/beryllium",
+    "make": "Xiaomi",
+    "image": "meta/device_image.png",
+    "state": "official",
+    "device": "beryllium"
+}
