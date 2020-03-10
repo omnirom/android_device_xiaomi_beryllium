@@ -62,6 +62,9 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
+      <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">false</bool>
+
     <!-- User activity timeout: Maximum screen dim duration as a percentage of screen off timeout.
          This resource is similar to config_maximumScreenDimDuration but the maximum
          screen dim duration is defined as a ratio of the overall screen off timeout
