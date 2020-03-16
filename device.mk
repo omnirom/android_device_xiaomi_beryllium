@@ -115,9 +115,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.beryllium
 
-# Properties
--include $(LOCAL_PATH)/device-props.mk
-
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
