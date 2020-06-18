@@ -6,3 +6,10 @@ on init
 on post-fs
     # Vibrator
     chown system system /sys/class/leds/vibrator/vmax_mv_user
+
+on boot
+    chown system system /proc/touchpanel/wake_gesture
+    chown system system /sys/devices/platform/soc/a98000.i2c/i2c-3/3-0038/fts_gesture_mode
+
+    chmod 0660 /proc/touchpanel/wake_gesture
+    chmod 0660 /sys/devices/platform/soc/a98000.i2c/i2c-3/3-0038/fts_gesture_mode
