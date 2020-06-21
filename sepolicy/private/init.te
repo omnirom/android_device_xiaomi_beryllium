@@ -13,3 +13,6 @@ allow init { tee -tzdatacheck -ueventd -vendor_init }:process noatsecure;
 
 allow init bt_firmware_file:filesystem getattr;
 allow init { sysfs_devices_block sysfs_white_led }:file setattr;
+
+# Allow init to chown/chmod on pseudo files in /sys
+allow init { sysfs_touchpanel sysfs_fts_touchpanel }:file { rw_file_perms setattr };
